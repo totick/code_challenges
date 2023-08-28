@@ -30,10 +30,40 @@ s consists of parentheses only '()[]{}'.
  */
 
 const valid_parens = (s) => {
-  if (s.length <= 1 || s.length >= 104) throw error;
+  if (s.length <= 1 || s.length >= Math.pow(10, 4))
+    throw new Error('String out of bounds.');
+
+  const OPEN_PARENTHESES = '([{';
+  const CLOSE_PARENTHESES = ')]}';
+  let foundedParentheses = [];
 
   for (let char of s) {
+    if (OPEN_PARENTHESES.includes(char)) {
+      foundedParentheses.push(char);
+    } else if (CLOSE_PARENTHESES.includes(char)) {
+      let openEquivalent = undefined;
+      switch (char) {
+        case ')':
+          openEquivalent = '(';
+          break;
+        case ']':
+          openEquivalent = '[';
+          break;
+        default:
+          openEquivalent = '{';
+          break;
+      }
+      if (
+        foundedParentheses.length > 0 &&
+        foundedParentheses[foundedParentheses.length - 1] === openEquivalent
+      ) {
+        foundedParentheses.pop();
+      } else {
+        return false;
+      }
+    }
   }
+  return foundedParentheses.length === 0 ? true : false;
 };
 
 export { valid_parens };
