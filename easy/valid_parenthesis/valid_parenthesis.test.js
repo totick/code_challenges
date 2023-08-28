@@ -12,9 +12,9 @@ it('should throw an error when string length is less than 2 characters', () => {
   expect(resultFn).toThrow();
 });
 
-it('should throw an error when string length is more than 139 characters', () => {
+it('should throw an error when string length is more than 10**4 characters', () => {
   //Arrange
-  const input = '{'.repeat(140);
+  const input = '{'.repeat(Math.pow(10, 4));
   const resultFn = () => valid_parens(input);
 
   //Assert
