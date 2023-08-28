@@ -50,4 +50,8 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].
  * @param {string} s
  * @return {number}
  */
-const romanToInt = (s) => {};
+const romanToInt = (s) => {
+  if (s.length < 1 || s.length > 15) throw new Error('String out of bounds.');
+};
+
+export { romanToInt };
