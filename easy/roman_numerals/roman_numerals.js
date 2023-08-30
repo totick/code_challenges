@@ -45,6 +45,16 @@ s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].
  */
 
+const ROMAN_NUMERALS = new Set('MDCLXVI');
+
+const isRomanNumber = (s) => {
+  for (let v of s) {
+    const isRomanCharacter = ROMAN_NUMERALS.has(v);
+    if (!isRomanCharacter) return false;
+  }
+  return true;
+};
+
 /**
  *
  * @param {string} s
@@ -52,6 +62,8 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].
  */
 const romanToInt = (s) => {
   if (s.length < 1 || s.length > 15) throw new Error('String out of bounds.');
+  const romanNumber = s.toUpperCase();
+  if (!isRomanNumber(romanNumber)) throw new Error('Wrong format.');
 };
 
 export { romanToInt };

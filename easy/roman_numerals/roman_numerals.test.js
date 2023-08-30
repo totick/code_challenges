@@ -18,3 +18,12 @@ it('should throw an Error when string is more than 15 characters', () => {
   //Assert
   expect(resultFn).toThrow();
 });
+
+it('should throw an Error when input is not a roman number', () => {
+  //Arrange
+  const input = 'y';
+  const resultFn = () => romanToInt(input);
+
+  //Assert
+  expect(resultFn).toThrow();
+});
