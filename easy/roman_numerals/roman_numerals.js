@@ -64,6 +64,60 @@ const romanToInt = (s) => {
   if (s.length < 1 || s.length > 15) throw new Error('String out of bounds.');
   const romanNumber = s.toUpperCase();
   if (!isRomanNumber(romanNumber)) throw new Error('Wrong format.');
+
+  let index = romanNumber.length - 1;
+  let count = 0;
+
+  while (s[index] !== undefined) {
+    if (romanNumber[index] === 'I') {
+      count += 1;
+    } else if (romanNumber[index] === 'V') {
+      if (romanNumber[index - 1] === 'I') {
+        count += 4;
+        index--;
+      } else {
+        count += 5;
+      }
+    } else if (romanNumber[index] === 'X') {
+      if (romanNumber[index - 1] === 'I') {
+        count += 9;
+        index--;
+      } else {
+        count += 10;
+      }
+    } else if (romanNumber[index] === 'L') {
+      if (romanNumber[index - 1] === 'X') {
+        count += 40;
+        index--;
+      } else {
+        count += 50;
+      }
+    } else if (romanNumber[index] === 'C') {
+      if (romanNumber[index - 1] === 'X') {
+        count += 90;
+        index--;
+      } else {
+        count += 100;
+      }
+    } else if (romanNumber[index] === 'D') {
+      if (romanNumber[index - 1] === 'C') {
+        count += 400;
+        index--;
+      } else {
+        count += 500;
+      }
+    } else if (romanNumber[index] === 'M') {
+      if (romanNumber[index - 1] === 'C') {
+        count += 900;
+        index--;
+      } else {
+        count += 1000;
+      }
+    }
+    index--;
+  }
+
+  return count;
 };
 
 export { romanToInt };
