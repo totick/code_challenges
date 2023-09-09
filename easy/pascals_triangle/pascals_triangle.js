@@ -23,26 +23,26 @@ Constraints:
 */
 
 const createTriangle = (numRows) => {
-  const result = [];
-  for (let rownr = 1; rownr <= numRows; rownr++) {
+  const triangle = [];
+  for (let rownr = 0; rownr < numRows; rownr++) {
     const row = [];
-    result.push(row);
-    for (let colnr = 1; colnr <= rownr; colnr++) {
-      if (rownr <= 2) {
+    triangle.push(row);
+    for (let colnr = 0; colnr <= rownr; colnr++) {
+      if (rownr <= 1) {
         row.push(1);
       } else {
-        if (colnr === 1 || colnr === rownr) {
+        if (colnr === 0 || colnr === rownr) {
           row.push(1);
         } else {
-          const value1 = result[rownr - 2][colnr - 2];
-          const value2 = result[rownr - 2][colnr - 1];
+          const value1 = triangle[rownr - 1][colnr - 1];
+          const value2 = triangle[rownr - 1][colnr];
           row.push(value1 + value2);
         }
       }
     }
   }
 
-  return result;
+  return triangle;
 };
 
 export { createTriangle };
