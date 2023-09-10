@@ -22,20 +22,30 @@ Constraints:
 1 <= numRows <= 30
 */
 
+/**
+ *
+ * @param {number} numRows
+ * @return {number[][]}
+ */
 const createTriangle = (numRows) => {
   const triangle = [];
   for (let rownr = 0; rownr < numRows; rownr++) {
     const row = [];
     triangle.push(row);
     for (let colnr = 0; colnr <= rownr; colnr++) {
+      //The first and second row contain only the value one.
       if (rownr <= 1) {
         row.push(1);
+        //Row three or more
       } else {
+        //First and las column ontains always the value one.
         if (colnr === 0 || colnr === rownr) {
           row.push(1);
+          //The columns in the middle.
         } else {
           const value1 = triangle[rownr - 1][colnr - 1];
           const value2 = triangle[rownr - 1][colnr];
+          //Sum the values of the row above to get the correct value in the column.
           row.push(value1 + value2);
         }
       }
