@@ -5,7 +5,8 @@ it.each([
   [1, [[1]]],
   [2, [[1], [1, 1]]],
   [3, [[1], [1, 1], [1, 2, 1]]],
-  [4, [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]]
+  [4, [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]],
+  [5, [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]]
 ])('should return correct pascal triangle', (input, expectedResult) => {
   //Act
   const result = createTriangle(input);
