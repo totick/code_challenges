@@ -32,7 +32,14 @@ Constraints:
  */
 const maxProfit = (prices) => {
   let profit = 0;
+  let tempLowestPrice = Number.POSITIVE_INFINITY;
   for (let x = 0; x < prices.length; x++) {
+    //If current day price is lower than the prices from before
+    if (prices[x] < tempLowestPrice) {
+      tempLowestPrice = prices[x];
+    } else {
+      continue; // Skip redundant price check.
+    }
     for (let y = x + 1; y < prices.length; y++) {
       if (prices[y] - prices[x] > profit) {
         profit = prices[y] - prices[x];
