@@ -30,6 +30,16 @@ Constraints:
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfit = (prices) => {};
+const maxProfit = (prices) => {
+  let profit = 0;
+  for (let x = 0; x < prices.length; x++) {
+    for (let y = x + 1; y < prices.length; y++) {
+      if (prices[y] - prices[x] > profit) {
+        profit = prices[y] - prices[x];
+      }
+    }
+  }
+  return profit;
+};
 
 export { maxProfit };
