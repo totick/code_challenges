@@ -6,6 +6,7 @@
  * @returns {Function}
  */
 const cancellable = (fn, args, t) => {
+  fn(...args); // Call immediately
   const intervalId = setInterval(() => fn(...args), t);
   return function () {
     clearInterval(intervalId);
