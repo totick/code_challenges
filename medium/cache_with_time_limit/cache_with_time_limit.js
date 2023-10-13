@@ -11,6 +11,8 @@ export const TimeLimitedCache = function () {
  */
 TimeLimitedCache.prototype.set = function (key, value, duration) {};
 
-TimeLimitedCache.prototype.get = function (key) {};
+TimeLimitedCache.prototype.get = function (key) {
+  if (!this.cache[key]) return -1;
+};
 
 TimeLimitedCache.prototype.count = function () {};
