@@ -17,7 +17,7 @@ TimeLimitedCache.prototype.set = function (key, value, duration) {
 };
 
 TimeLimitedCache.prototype.get = function (key) {
-  if (!this.cache[key]) return -1;
+  return this.cache[key] === undefined ? -1 : this.cache[key];
 };
 
 TimeLimitedCache.prototype.count = function () {};
