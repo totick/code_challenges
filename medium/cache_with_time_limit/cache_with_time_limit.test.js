@@ -38,3 +38,17 @@ it('should return -1 if no un-expired key exists', () => {
   //Assert
   expect(result).toBe(expectedResult);
 });
+
+it('should return false when adding a key that does not already exists', () => {
+  //Arrange
+  const key = 1;
+  const value = 0;
+  const cache = new TimeLimitedCache();
+  const expectedResult = false;
+
+  //Act
+  const result = cache.set(key, value);
+
+  //Assert
+  expect(result).toBe(expectedResult);
+});
