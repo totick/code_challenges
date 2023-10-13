@@ -68,3 +68,21 @@ it('should return associated value from existing key', () => {
   expect(response).toBeFalsy();
   expect(result).toBe(expectedResult);
 });
+
+it('should overwrite existing key with new value and response should be true', () => {
+  //Arrange
+  const key = 1;
+  const firstValue = 2;
+  const secondValue = 3;
+  const cache = new TimeLimitedCache();
+  const expectedResult = secondValue;
+
+  //Act
+  cache.set(key, firstValue);
+  const response = cache.set(key, secondValue);
+  const result = cache.get(key);
+
+  //Assert
+  expect(response).toBeTruthy();
+  expect(result).toBe(expectedResult);
+});
