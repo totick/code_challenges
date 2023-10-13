@@ -52,3 +52,19 @@ it('should return false when adding a key that does not already exists', () => {
   //Assert
   expect(result).toBe(expectedResult);
 });
+
+it('should return associated value from existing key', () => {
+  //Arrange
+  const key = 1;
+  const value = 2;
+  const cache = new TimeLimitedCache();
+  const expectedResult = value;
+
+  //Act
+  const response = cache.set(key, value);
+  const result = cache.get(key);
+
+  //Assert
+  expect(response).toBeFalsy();
+  expect(result).toBe(expectedResult);
+});
