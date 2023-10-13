@@ -11,6 +11,8 @@ export const TimeLimitedCache = function () {
  */
 TimeLimitedCache.prototype.set = function (key, value, duration) {
   const response = this.get(key) === -1 ? false : true;
+  this.cache[key] = value;
+
   return response;
 };
 
