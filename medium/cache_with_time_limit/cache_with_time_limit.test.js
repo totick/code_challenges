@@ -26,6 +26,11 @@ count():
 import { it, expect } from 'vitest';
 import { TimeLimitedCache } from './cache_with_time_limit';
 
+/**
+ * Helper function for waiting an amount of time.
+ * @param {number} duration in milliseconds
+ * @returns undefined
+ */
 const wait = async (duration) => {
   return new Promise((resolve) => {
     setTimeout(resolve, duration);

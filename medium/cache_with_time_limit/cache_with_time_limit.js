@@ -17,10 +17,19 @@ TimeLimitedCache.prototype.set = function (key, value, duration) {
   return response;
 };
 
+/**
+ *
+ * @param {number} key
+ * @return {number} associated value with key
+ */
 TimeLimitedCache.prototype.get = function (key) {
   return this.cache[key] === undefined ? -1 : this.cache[key];
 };
 
+/**
+ *
+ * @return {number} number of un-expired keys
+ */
 TimeLimitedCache.prototype.count = function () {
   return Object.getOwnPropertyNames(this.cache).length;
 };
