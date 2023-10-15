@@ -24,7 +24,8 @@ count():
  */
 
 import { it, expect } from 'vitest';
-import { TimeLimitedCache } from './cache_with_time_limit';
+// import { TimeLimitedCache } from './cache_with_time_limit';
+import { TimeLimitedCache } from './cache_with_time_limit_2';
 
 /**
  * Helper function for waiting an amount of time.
